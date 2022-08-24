@@ -1,0 +1,42 @@
+create a web server on apache
+-----------------------------
+sudo su
+yum install httpd -y - to install apache
+systemctl start httpd - to start apache
+
+- to download wordpress
+wget https://wordpress.org/latest.zip - to download wordpress
+unzip latest.zip - to extract zip file
+amazon-linux-extras install php7.3 -y - to install php
+cp -r /var/www/html/wordpress* /var/www/html/ - for copying datas
+open ip address (public ip)
+-------------------------you will bw able to see wordpress home page-------------------------
+
+create database server
+----------------------
+yum install mariadb-server -y - install mariaDB
+systemctl restart mariadb.service - to start mariaDB
+mysql_secure_installation - to set root user password
+create user 'ashiq'@'%'identified by 'password'; - to create user
+grant all privileges on*.*to 'ashiq'@'%' with grant option; - to give all permission for user
+flush privileges; - used to reload tables
+
+download phpMyAdmin
+-------------------
+yum install httpd -y
+systemctl restart httpd.service
+wget https://phpmuadmin downloadlink (please go to php website and get it)
+unzip downloaded_file
+amazon-linux-extras install php7.3 -y - install php
+open ip address ip adreess/phpMyAdmin (eg: 67.245.26.78/phpMyadmin), enter username and password
+
+-------------------------------------completed--------------------------------------
+
+connection between webserver and database server
+------------------------------------------------
+open webserev goto "wp-config-sample.php" and create copy of same file named as "wp-config.php"
+change your DB_name.............
+            user_name.............
+            password................
+            host......................
+open your webserver ip address, consequently we are able to see welcome page

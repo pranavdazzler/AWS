@@ -1,0 +1,46 @@
+create multiple application on same server, same ip address with diff port number
+----------------------------------------------------------------
+create instance
+install httpd(apache)
+start apache
+goto config file - /etc/httpd/conf/httpd.conf, add Listen 80,81,82 then save file
+create virtual host
+<VirtualHost pvt_ip_addess:80>
+	DcoumnentRoot "var/www/html/appa"
+</VirtualHost>
+
+<VirtualHost pvt_ip_addess:81>
+	DcoumnentRoot "var/www/html/appb"
+</VirtualHost>
+
+=========================================================================================================================
+
+host multiple application on same server with diff ip
+-----------------------------------------------------
+create instance
+install apache server
+start apache serevr
+create ineterface (ENI) an attach to server along with associate elatic ip
+
+create virtual host
+<VirtualHost pvt_ip_addess-1:80>
+	DcoumnentRoot "var/www/html/appa"
+</VirtualHost>
+
+<VirtualHost pvt_ip_addess-2:80>
+	DcoumnentRoot "var/www/html/appb"
+</VirtualHost>
+
+=========================================================================================================================
+install nginix webserver
+
+amazon-linux-extras install nginx1 -y
+systemctl start nginx1
+create a index file in -> /usr/share/nginx/html/
+
+=========================================================================================================================
+install tomcat webserver
+
+amazon-linux-extras install tomcat9 -y
+systemctl start tomcat
+create a index file in -> /usr/share/tomcat/webapps/ROOT

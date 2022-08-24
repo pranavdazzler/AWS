@@ -1,0 +1,16 @@
+[12:55 PM, 7/26/2022] Aashiq AWS SIR: create user
+-----------
+adduser/useradd <username> - to add a user on server
+cat /etc/passwd - view users on server
+getent passwd - view users on server
+cat /etc/shadow - view passwords of users and root users
+passwd <username> - to set passwd for users
+su <username> - change for one user to another
+create multiple user in linux - for i in `cat /home/user`; do adduser $i;done
+[1:02 PM, 7/26/2022] Aashiq AWS SIR: create group and add group
+--------------------------
+groupadd goupname - we can create group
+cat /etc/group - for list all group
+usermod -aG groupname username -> add user to group
+usermod -g groupname username -> set as primary group
+groups username - to find what are the users present in group

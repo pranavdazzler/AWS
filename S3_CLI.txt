@@ -1,0 +1,78 @@
+create a bucket
+---------------
+aws s3 mb s3://<bucketname> --region <region_name>
+
+delete bucket
+-------------
+aws s3 rb s3://mybucket 
+aws s3 rb s3://mybucket --force (including files)
+
+remove object
+-------------
+aws s3 rm s3://mybucket/test2.txt (for one specific object)
+aws s3 rm s3://mybucket --recursive (for all object)
+
+copy from on to another
+-----------------------
+aws s3 cp s3://newbuckt/hello s3://mybucket (from bucket to bucket)
+aws s3 cp test.txt s3://mybucket (form server to s3)
+
+move from on to another
+-----------------------
+aws s3 mv s3://newbuckt/hello s3://mybucket (from bucket to bucket)
+aws s3 mv test.txt s3://mybucket (form server to s3)
+
+presign 
+--------
+The following "presign" command generates a pre-signed URL for a
+specified bucket and key that is valid for one hour.
+aws s3 presign s3://DOC-EXAMPLE-BUCKET/test2.txt
+
+The following "presign" command will last 20 seconds:-
+aws s3 presing s3://DOC-EXAMPLE-BUCKET/test2.txt --expires-in 20
+
+for sync data from source to destination(same as copy)
+------------------------------------------------------
+aws s3 sync s3://mybucket s3://mybucket2
+
+for enable static web hosting
+-----------------------------
+aws s3 website s3://bucketname --index-document index.html
+
+-------------------------------------------------compeleted-------------------------------------------------------
+
+for learn new commands goto cmd(aws cli) type:
+aws s3 ? (you will be get all the commands)
+
+for find syntax of command
+aws s3 ls help
+aws s3 mb
+aws s3 rb
+aws s3 rm
+aws s3 cp
+aws s3 mv
+aws s3 sync
+aws s3 website
+aws s3 presign
+
+
+
+
+
+
+
+
+
+
+
+
+copy from computer or server to s3
+----------------------------------
+aws s3 cp c:/filepath s3://<bucketname> (if it is file)
+aws s3 cp c:/filepath s3://<bucketname> --recursive (if it is folder)
+aws s3 cp s3://<source> s3://<destination>
+aws s3 sync s3://<source> s3://<destination>
+
+list all buckets
+----------------
+aws s3 ls

@@ -1,0 +1,55 @@
+[12:53 PM, 6/17/2022] Aashiq AWS SIR: 1 - create one buckets, in each account, so lets consider bucket1 and bucket2
+[12:54 PM, 6/17/2022] Aashiq AWS SIR: 2 - create bucket policy (you can get the policy from cited link) and attach to source bucket
+[12:55 PM, 6/17/2022] Aashiq AWS SIR: 3 - create iam user on destination account and attach (user policy from cited link)
+[12:56 PM, 6/17/2022] Aashiq AWS SIR: 4 - login as user and please run this command (aws s3 sync source_bucket destination_bucket)
+[12:56 PM, 6/17/2022] Aashiq AWS SIR: bucket policy model
+[12:56 PM, 6/17/2022] Aashiq AWS SIR: {
+    "Version": "2012-10-17",
+    "Statement": [
+        {
+            "Sid": "DelegateS3Access",
+            "Effect": "Allow",
+            "Principal": {
+                "AWS": "arn:aws:iam::DESTINATION_BUCKET_ACCOUNT_NUMBER:root"
+            },
+            "Action": [
+                "s3:ListBucket",
+                "s3:GetObject"
+            ],
+            "Resource": [
+                "arn:aws:s3:::SOURCE_BUCKET_NAME/*",
+                "arn:aws:s3:::SOURCE_BUCKET_NAME"
+            ]
+        }
+    ]
+}
+[12:56 PM, 6/17/2022] Aashiq AWS SIR: iam policy model
+[12:56 PM, 6/17/2022] Aashiq AWS SIR: {
+    "Version": "2012-10-17",
+    "Statement": [
+        {
+            "Effect": "Allow",
+            "Action": [
+                "s3:ListBucket",
+                "s3:GetObject"
+            ],
+            "Resource": [
+                "arn:aws:s3:::SOURCE_BUCKET_NAME",
+                "arn:aws:s3:::SOURCE_BUCKET_NAME/*"
+            ]
+        },
+        {
+            "Effect": "Allow",
+            "Action": [
+                "s3:ListBucket",
+                "s3:PutObject",
+                "s3:PutObjectAcl"
+            ],
+            "Resource": [
+                "arn:aws:s3:::DESTINATION_BUCKET_NAME",
+                "arn:aws:s3:::DESTINATION_BUCKET_NAME/*"
+            ]
+        }
+    ]
+}
+[6:08 PM, 6/17/2022] Aashiq AWS SIR: aws s3 sync/cp <source> <destination> --source-region <ap-south-1> --region <us-east-1>

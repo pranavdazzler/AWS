@@ -1,0 +1,27 @@
+Nginx act as a LoadBalancer
+---------------------------
+create ubuntu server and install nginx on it - apt-get install nginx -y
+create another two server and install apache
+open nginx server and remove default page -> "rm -rf /etc/nginx/sites-enabled/default"
+open nginx server and add new page as "loadbalancer.conf" -> nano /etc/nginx/conf.d/loadbalancer.conf
+create cited statement to loadbalancer.conf
+
+upstream backend {
+        server 192.168.0.249;
+        server 192.168.10.250;
+    }
+ 
+    server {
+        listen      80;
+        server_name teknopathshala.com;
+
+        location / {
+         proxy_redirect      off;
+         proxy_set_header    X-Real-IP $remote_addr;
+         proxy_set_header    X-Forwarded-For $proxy_add_x_forwarded_for;
+         proxy_set_header    Host $http_host;
+  proxy_pass http://backend;
+ }
+}
+
+systemctl restrt nginx/service restart nginx

@@ -1,0 +1,9 @@
+[12:51 PM, 7/26/2022] Aashiq AWS SIR: swapfile
+--------
+> sudo dd if=/dev/zero of=/swapfile bs=128M count=32 - create swapfile
+> sudo chmod 600 /swapfile - chnage permission of swap file
+> sudo mkswap /swapfile - make a swap file
+> sudo swapon /swapfile - ensure it on
+> sudo swapon -s - check whether swapon activated or not
+> sudo vi /etc/fstab - create permanent place by creating fstab record
+[12:53 PM, 7/26/2022] Aashiq AWS SIR: > sysctl vm.swappiness = 10 - set your swappiness value

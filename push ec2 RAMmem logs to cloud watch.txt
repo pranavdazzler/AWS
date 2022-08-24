@@ -1,0 +1,46 @@
+push ec2 RAM/mem logs to cloud watch
+------------------------------------
+create role "CloudwatchAgentAdminPolicy" for ec2
+connect ec2 through Ec2InstanceConnect
+install aws cloud watch agent -> "sudo yum install amazon-cloudwatch-agent-y"
+run this command for colllect metrics -> "/opt/aws/amazon-cloudwatch-agent/bin/amazon-cloudwatch-agent-config-wizard"
+after start cloud watch agent and push metrics to config.json -> "/opt/aws/amazon-cloudwatch-agent/bin/amazon-cloudwatch-agent-ctl -a fetch-config -m ec2 -c file:/opt/aws/amazon-cloudwatch-agent/bin/config.json -s"
+
+ec2-Serial-console
+------------------
+create and attch for if it is user (not required policy if it is root user)serial console access role
+
+policy for user
+
+{
+    "Version": "2012-10-17",
+    "Statement": [
+        {
+            "Effect": "Allow",
+            "Action": [
+                "ec2:GetSerialConsoleAccessStatus",
+                "ec2:EnableSerialConsoleAccess",
+                "ec2:DisableSerialConsoleAccess"
+            ],
+            "Resource": "*"
+        }
+    ]
+}
+change instance type to t3.micro(micro systems)
+common use case for troubleshoot network configuration files or system dont have network capability
+
+ec2-session-manager
+-------------------
+create role "AmazonSSMManagedInstanceCore"
+then reboot your system
+goto connect and check session manager
+
+systems manager run command to push ssh public key to server
+-------------------------------------------------------------
+create role "AmazonSSMManagedInstanceCore"
+then reboot your system
+goto systems manager service, on lef bottom you will be able to see "run command" select, and select "aws shell script"
+create a key pair by using "putty" or "windows ssh-keygen"
+run command -> echo "put public key over here" > /home/ec2-user/.ssh/authorized_keys
+then click run
+finished, connect your ec2 by using private key

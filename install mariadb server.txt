@@ -1,0 +1,43 @@
+install mariadb server
+-----------------------
+yum install mariadb-server - install mariadb
+systemctl start mariadb-server - start maria db service
+mysql_secure_installation - to install mysql in database server
+
+mysql -u root -p - to access mariadb server
+show databases; - to show all databases in mariaDB
+create database <database_name>; - to create database in mariaDB
+select user form mysql.user; - to list all the usesrs in mysql dtabases
+
+create user 'ashiq'@'%'identified by 'password'; - for create a user 
+grant all privileges on*.*to 'ashiq'@'%'with grant option; - to give all access
+flush privileges; - it will reload the tables and all
+
+to connect server from diffrent server mysql -h (host_name) -u <user_name> -p <keep_it_as_blank>
+
+use <database_name>, eg: use db1 - for open database
+create table table_name (id int, name varchar(100), course varchar(100)); - create table and info
+show tables; - used to show all the tables in database
+select * from <table_name> - used to show all rows and columns
+
+
+sample table name
+------------------
+
+table2
+
+id, name, place, country, institution
+
+create table table2 (id int, name varchar(100), place varchar(100), country varchar(100), institution varchar(100));
+
+insert into table2 (name, place, country, institution ) values('mike','sydny', 'india', 'warikoo');
+insert into table2 (name, place, country, institution ) values('jhone','eu', 'india', 'st marry's');
+insert into table2 (name, place, country, institution ) values('alex','london', 'india', 'federal college');
+
+
+php my admin
+-------------
+download php my admin form cited link
+amaozn-linux-extras install php7.3 -y
+systemctl restart mariadb.services
+systemctl restart httpd.services

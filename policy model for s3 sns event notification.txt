@@ -1,0 +1,20 @@
+{
+   "Id": "s3EventSNS",
+   "Version": "2012-10-17",
+   "Statement": [
+     {
+       "Sid": "s3EventSNSNotification",
+       "Action": [
+         "sns:Publish"
+       ],
+       "Effect": "Allow",
+       "Resource": "<YourTopicARN>",
+       "Condition": {
+         "ArnLike": {
+           "aws:SourceArn": "<Yours3BucketARN>"
+         }
+       },
+       "Principal": "*"
+     }
+   ]
+ }

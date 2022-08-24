@@ -1,0 +1,6 @@
+#!/bin/bash
+yum update -y
+yum install httpd -y
+systemctl start httpd.service
+systemctl enable httpd.service
+echo “Hello FIrst ec2 $(hostname -f)” > /var/www/html/index.html

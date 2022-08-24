@@ -1,0 +1,10 @@
+mount EBS
+---------
+attach ebs
+lsblk - to list all the block dvices
+df -h - to list all free disk unit
+file -s /dev/xvdf - to check whther it file system or not
+mkfs -t xfs/ext2/ext3/ext4 /dev/xvdf - used to make a file system
+mkdir /storage - create mount directory
+mount /dev/xvdf /storage - to mount storage
+umount /dev/storage - to unmount storage

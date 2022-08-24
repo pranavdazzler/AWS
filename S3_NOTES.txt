@@ -1,0 +1,99 @@
+- what is s3 and object storage?
+s3 is web service provided by aws with host of features such as massively scalable, durable, highly available and 
+secure. s3 is unstructured storage commonly call it as object storage.
+we can store all kind of data on s3 such as analatycal data, application data, logs, media files and data - 
+recovery or backup files
+
+ - static web hosting?
+static web hosting it is salient feature of s3 service, where we can host our website statically.
+steps for static web hosting:-
+1) create website page
+2) create a bucket
+3) enable public and ACL
+4) go to properties at last we can find static web hosting, click enable and add website file name
+5) refersh page, copy web hosting link and paste any browser
+
+- s3 storage class
+s3 storage classes is another feature of s3 bucket, where we can reduce or mitigate expense by transit of data
+from one class to another
+so we 3 storage tiers 1) frequent access tier
+                      2) infrequent access tier
+                      3) archive tier
+
+- frequent access tier
+standard - (for frequent access, data distributed >=3 Availability zones, can store all kind of data including critical)
+RRS (reduced redundancy storage) - (using for frequent access, data distributed >=3 Availability zones, can store non crtitical data)
+
+- infrequent access tier
+standard IA - (using for infrequent access(monthly once), data distributed >=3 Availability zones, can store all kind of datas)
+one zone IA - (using for infrequent access(monthly once), data distributed >=1 Availability zones, can store all kind of datas)
+
+- archive tier
+glacier instant retrieval - (using for infrequent access(quarterly once), data distributed >=3 Availability zones, millisecond access)
+glacier flexible retrieval -(using for infrequent access(yearly once), data distributed >=3 Availability zones, will take minute to hours) 
+glacier deep archive - (using for infrequent access(yearly), data distributed >=3 Availability zones, will take minute to hours)
+
+- inteligent tiering
+it is distict one from other storag classes, in inteligent tiering data automatically transit from one class to
+another class (everything managd by aws) according to data usage. (there is no mnimum time among classes)
+in intligent tiering aws will be charged for data monitoring and data transition. 
+
+ - bucket versioning
+Versioning is a means of keeping the multiple forms of an object in the same S3 bucket. 
+Versioning can be used to retrieve, preserve and restore every version of an object in S3 bucket. 
+For example, bucket consists of two objects with the same key but with different version ID's
+
+two benefits 1) can store multiple data on same name
+             2) can prevent accidental data deletion
+
+ - object lock
+Object Lock can help prevent objects from being deleted or overwritten for a fixed amount of 
+time or indefinitely. You can use Object Lock to help meet regulatory requirements that require 
+WORM storage (write once and read many) or simply add another layer of protection against object changes and deletion.
+for enable object lock imperatively enable bucket versioning
+
+- life cycle rule
+it is same as inteligent tiering but ourself has to configure, An S3 Lifecycle configuration is an XML file 
+that consists of a set of rules with predefined actions that you want Amazon S3 to perform on objects 
+during their lifetime. 
+
+- replication SRR (same region replication)
+              CAR (cross account replication)(done)
+              CRR (cross region replication)
+              reference - https://itnext.io/s3-cross-account-replication-42dd83f42492
+Amazon Simple Storage Service (S3) Replication is an elastic, fully managed, low cost feature that 
+replicates objects between buckets. S3 Replication offers the most flexibility and functionality in cloud 
+storage, giving you the controls you need to meet your data sovereignty and other business needs.
+
+ - s3 batch operations(done)
+S3 Batch Operations is a managed solution for performing storage actions like copying and tagging 
+objects at scale, whether for one-time tasks or for recurring, batch workloads. S3 Batch 
+Operations can perform actions across billions of objects and petabytes of data with a single request.
+
+ - public s3
+publicly exposed, anybody can access through internet
+ - private s3
+publicly not exposed, nobody can access through internet
+
+-differents between iam, bukcet policy and ACL
+iam - working on service level
+bukcet policy - working on bucket level
+ACL- workign object level
+
+- server side encryption 
+  server-side encryption is the cryptographic technique of encrypting data on the reciever's side.   
+  - SSE-S3 (aws managed encryption, everything will take over by s3, AES 256 BIT)
+  - SSE-KMS (aws key management service, user can create customized encrytpion key, RSA 2048, 3072, 4096
+
+- client side encryption
+Client-side encryption is the cryptographic technique of encrypting data on the sender's side, 
+before it is transmitted to s3 bucket.
+
+ - server access loging
+Server access logging provides detailed records for the requests that are made to a bucket. 
+Server access logs are useful for many applications. For example, access log information can be useful in 
+security and access audits. It can also help you learn about your customer base and understand your Amazon S3 bill.
+
+
+
+ 

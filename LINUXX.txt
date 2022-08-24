@@ -1,0 +1,47 @@
+linux
+-----
+cat /etc/passwd - to list users
+getent passwd - to list users
+cat /etc/group - to list group
+getent group - to list group
+
+whoami - current username 
+who - we can find howmany users are logged into aws and what is their satatus and ip adderss
+w - to find more info about logged users
+
+adduser username
+useradd username
+cat /etc/default/useradd - to find default value of user
+useradd username -d /directoy/usedirectoryname - to chnage hoem directory of user
+useradd -c "this user belongs to devops team" username
+passwd username - to create passwd
+create group - groupadd groupname
+usermod -aG groupname username - add user into group
+usermod -g groupname username - change user primary group
+wc -l /etc/passwd - find howmany users in linux
+cat /etc/shadow - to find passwd of user
+cat /etc/gshadow - group password
+cat /etc/passwd | grep username - tocheck whether user is exisitng or not
+cat /etc/group | grep groupname - tocheck whether group exisiting or not
+id -u username - for print user id of user
+id -g groupname - for print group id of user
+id - find userid, group id and groups
+groups user - list groups of user
+userdel username - to delete user
+userdel -r username - for delete home directory also
+useradd -r username - create system user
+echo $SHELL - find user shell
+cat /etc/passwd | grep ashiq - to find username
+ls | grep ashiq - to find user name
+groupdel groupname - to delete group
+create password fo gtoup - 
+
+important file
+---------------
+/etc/passwd - userfiles
+/etc/group froup files
+/etc/shadow - user password encrypted details
+/etc/gshadow - group password
+/etc/sudoers - root power files
+(we can open suoers file by using "visudo")
+/ect/default/useradd - user add default files

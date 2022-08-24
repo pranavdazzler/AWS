@@ -1,0 +1,143 @@
+- what is network?
+------------------
+connection of two or more differents nodes and if they able to communicate  together 
+its called network
+
+- port number and tcp and udp
+-----------------------------
+a port is a logical construct that identifies a specific process or a type of network service.
+
+- what is UDP and TCP
+---------------------
+TCP is a connection-oriented protocol, whereas UDP is a connectionless protocol. 
+A key difference between TCP and UDP is speed, as TCP is comparatively slower than UDP. 
+Overall, UDP is a much faster, simpler, and efficient protocol, however, -
+retransmission of lost data packets is only possible with TCP.
+
+- what is vpc
+--------------
+vpc is a webservice provided by aws and it is logically separated or isolated 
+from other vpc. (by default between two vpc will not have any communication)
+
+- what is subnet?
+-----------------
+dividing or bifurcation of network in to smaller parts
+
+- what is route table?
+----------------------
+route table is predominant component of vpc, it contain defined rules for establish 
+communication between two entity (among vpc's, among subnets and internet gateway)
+
+- NACL & security groups(NIC) 
+-----------------------------
+NACL(network access control list) is used in subnet level
+it is stateless
+priority basis rule arrangement
+we can allow and deny rule
+we can create 200 NACL 
+we can create 20 NACL rule and can enahance upto 40
+minimum rule number should be 1 maximum 32766
+
+SG(security group) is used in instance level and attach with ENI
+is is statefull
+not a priority basis arrangement
+we can only allow rules
+we can create 2500 SG and enhance up to 5000
+we can create 120 rules, 60 OB and 60 IB
+
+- elastic ip
+------------
+it is static public ip, used to mask or hide instance failuer from users.
+even if system shut down and when it return back, we will be able to see the same ip
+address if elastic ip is associated earlier, the primamry purpose is ip should 
+preserve even regardless of any state
+
+- what is NAT gateway
+---------------------
+it is vpc component used to bring internet to private subnet(only outbound connection)
+
+jumphost or bastion host
+----------------------
+create subnet in private subnet with private ip, use another server(proxy) to access
+private server consequently we can prevent direct access to server.
+
+- file transfer by using scp
+----------------------------
+file transfer between two servers
+syntax:-
+--------
+scp -i <Destination_Server_keyname> <intented_file_name> <user_name>@<ip_address>:<destination_path>
+
+- egress only internet gateway
+-------------------------------
+same as nat gateway used for ipv6 networks
+
+- vpc peering
+-------------
+establish a connection between two vpc's privately is called vpc peering
+equation for find vpc peering:-
+------------------------------
+n(n-1)/2 or (n-1)n/2
+
+- vpc transitive gateway
+------------------------
+sam as vpc peering, to overcome vpc peering flaws we can use vpc transit gateway.
+
+- vpc quotas
+-------------
+vpc 5 vpc in a region
+nat gateway 5 in a AZ
+igw 5 in a region
+subnet 200 in a VPC
+nacl 200 in region
+peering active 50
+peeirng pending 25
+elastic ip 5
+
+- endpoints
+-----------
+endpoints are vpc component used to commuicate between two defferent services privately 
+we have two types of endpoint:
+- gateway endpoint
+two services only we can use for gateway endpoint such as s3 and dynamoDB
+here we using gateway an private ip to communicate bewtween two services
+- interface endpoint
+here we using ENI and private dns to communicate bewteen two services.
+
+- VPN
+-----
+virtual private network used to establish secured private connection over network for
+communication and resource sharing
+
+tpye os technologies:-
+GRE (generic routign encapsulation)
+DMVPN (dynamic multipoint VPN)
+IP SEC
+
+- AWS VPN
+  - SITE-TO-SITE (between two compnay baranch)
+  - REMOTE ACCESS VPN (between company and employee)
+  - DIRECT CONNECT (between two company branch through pysical medium)
+
+- Reachability Analyzer
+-----------------------
+used to troublshoot between two components or entity in vpc
+
+- VPC FLOW LOGS
+---------------
+used to generate vpc traffic logs
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

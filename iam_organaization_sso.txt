@@ -1,0 +1,134 @@
+ - what is IAM?
+iam is web service provided by aws, where we can control and secure aws resource is called iam
+
+ - methods of accessing IAM?
+management console
+programatic access(aws cli)
+SDK(software development kit)
+HTTP API
+
+ - what is user, group and roles
+user: user is is entity, by using user credintial where we can access and perform some actions on aws resorces
+goup: group is identity or its collection of users, where we can accomodate all users in one place and control together
+role: role is same as policy, but it is temporary credentials, we can use role for 
+      - amoung resource communication
+      - cross account access
+      - web identity federation
+      - enterprise identity federation
+
+ - permission boundaries
+permisiion boundary is salient and new feature of iam, where we can restrict user access in certain contexts.
+
+ - what is authentication and authorization?
+authentication: it is the process of proving something is true or genuine
+authorization: it is authorization power to do or previleges to do something
+
+- permission and policy
+permission: set rules we can call it as permission
+policy: set of permission we can call it as policy
+
+ - password polic
+to protect and enhance security from unauthorized access we can secure our account credentials, here we 
+using some rules to define it, is called passowrd policy
+
+ - what is resource, identity, entity, principle?
+resource: object which stored in service is called resource
+idenity: to all are we can attach policy is called identity. eg: user, group and role
+entity: to whom all are can authenticate account is called entity. eg: user and role
+principle: who all are can accessing to aws account is called principle. eg: user, federated user and application
+
+ - how IAM works?
+iam first check is there any explicit deny or not, is there final action will be deny. if there is no explicit deny
+it will check is there is any allow or not, if it is same it will allow cited permission
+
+by defautl root permission allow
+by default iam user permission deny
+
+ - json policies and how to create json policies?
+we can create  by using 1) visual editor 2) policy generator
+
+ - key attributes in json
+version (2008/10/17, 2012/10/17)
+statement [
+
+            statement id
+
+            effect
+
+            actions
+
+            resources
+
+            principle
+
+            condition
+
+]
+
+ - what all are iam features
+granular access
+MFA
+bunch policy helps secure account
+free
+
+ - Security Tocken Service
+sts is security token service, used to get temporary token for communicating between two resorecs or enitity
+usecaes: cross account access, ec2 with s3 communication.
+
+ - AWS cross account access with STS (lab steps)
+lets consider account A and B, account A want to connect B EC2FullAccess.
+first create role in B for A
+create user in A to acces to B
+attach user policy STS on created user on A
+login as a user
+click on top right side, select switch role
+enter account B account id
+enter account b created role name
+submit..!
+after you will be able to access B accoutn withot any logout from A
+
+ - type of users in aws account?
+root: he is called admin of account, the user emerged whenver we created aws account
+iam user: used created by root user or from other authorative entity
+federated: user from outside
+
+ - fedrated users
+   - enterprise identity federated users(saml)
+     form corporate id eg: microsoft 365
+   - web identity federated users(oidc)
+     form web eg: facebook, google and so on
+
+- types os policies
+
+
+                                               policy
+      ---------------------------------------------------------------------------------
+      |                                                                               |
+  identity based policy                                                         resources based policy
+               |
+               |
+            --------------------------
+            |                        |
+       manged policy            inline policy
+               |
+               |
+          ---------------
+          |             |
+      aws managed     custom manged 
+
+identity based policy: we can attach policy with identies
+managed policy: it have two sub catogories, managed by either aws or customer
+aws managed policy: these policy managed by aws or predefined policies called aws manged
+customer managed policy: cusstom managed policy or user or admin created policy is called custom managed
+inline policy: one to one relationship, ones we attach policy with user we cannot transit to another enitity
+resource based policy: policy which attached on resource is called resource based policy eg: bucket policy
+
+- what is SSO?
+all the application will accumulate together in a console is called sso
+access all application without credintial
+
+- organazization
+to centrally manage and control all the account using organaization
+scp
+billing 
+

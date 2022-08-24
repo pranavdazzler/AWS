@@ -1,0 +1,17 @@
+iam interview questions
+-----------------------
+1. What’s AWS IAM?
+2. Are root users and IAM users the same?
+3. What is federated user access management?
+4. What is Authentication in terms of AWS IAM service?
+5. What is Authorization in terms of AWS IAM service?
+6. what is resource, identity, entity and principle
+7. differents between permission and policy
+8. How AWS IAM allows access?
+9. What’s the other name of the IAM user?
+10. What are Temporary Security Credentials?
+11. what is user, group and role?
+12. what is multi-factor authentication (MFA)
+13. what are the type of policies?
+14. what are the key elements in the JSON schema of a policy?
+15. what is condition in iam json policy

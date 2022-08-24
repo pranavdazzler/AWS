@@ -1,0 +1,40 @@
+LVM logical volume management
+------------------------------
+- install lvm if it is not installed yet?
+yum install lvm* -y - install lvm
+- create a physical volume
+pvcreate /dev/xvda /dev/xvdb or pvcreate /dev/xvd{a,b}
+pvs - to check physical volume
+pvscan - to check pvs
+pvdisplay - to display pv
+- to create volume group, execute below command
+vgcreate vgname /dev/xvda /dev/xvdf
+vgs
+vgscan
+vgdisplay
+- to create lvm 
+lvcreate -n nameofLV -L 13G /dev/vg1
+lvs
+lvscan
+lvdisplay
+
+create a file system
+mkfs.xfs /dev/vg/lvm
+create a mount point - mkdir /mnt/data
+mount your block device - mount /dev/vg/lvm
+
+to extend lvm
+-------------
+lvextend -L +2G /dev/volumegorup/lvm
+
+to extend lvm
+-------------
+lvreduce -L -2G /dev/volumegorup/lvm
+
+if it is xfs
+-------------
+xfs_growfs
+
+if it is exte4
+--------------
+resize2fs -f /dev/vg1/lvm

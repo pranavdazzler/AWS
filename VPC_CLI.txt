@@ -1,0 +1,15 @@
+aws ec2 describe-vpcs - to list all vpcs
+aws ec2 describe-vpcs --vpc-id - to list specific vpc
+
+aws ec2 create-vpc --cidr-block 10.0.0.0/24 - to create a vpc
+aws ec2 create-vpc --cidr-block 10.0.0.0/24 --tag-specification ResourceType=vpc,Tags=[{Key=Name,Value=MyVpc}] - to create tag for vpc
+
+aws ec2 create-subnet --vpc-id *** --cidr-block 0.0.0.0/0 -to create subnet
+aws ec2 create-subnet --vpc-id *** --cidr-block 0.0.0.0/0 --tag-specification ResourceType=subnet,Tags=[{Key=Name,Value=MyVpc}]
+
+
+find new commands by using cited command:-
+aws ec2 ?
+
+find syntax by using cited command:-
+aws ec2 describe-vpcs help
